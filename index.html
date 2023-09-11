@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<script src="js/val_and_sub.js"></script>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    Студент: Вейгандт Владимир Вячеславович ИСУ 367132
+</head>
+<body>
+<h1>Лабораторная работа №1</h1>
+<form>
+    <p>
+        <label for="x">X</label>
+        <select id="x" class = "required">
+            <option value="-5">-5</option>
+            <option value="-4">-4</option>
+            <option value="-3">-3</option>
+            <option value="-2">-2</option>
+            <option value="-1">-1</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </p>
+    <br>
+    <p>
+        <label for="y">Y</label>
+        <input type="text" id="y" placeholder="Введите Y">
+    </p>
+    <br>
+    <p>
+        R:
+        <input type="checkbox" id=r_1 class="r_checkboxes" name="r_1">
+        <label for="r_1" class="checkbox-label">1</label>
+        <input type="checkbox" id=r_15 class="r_checkboxes" name="r_15">
+        <label for="r_15" class="checkbox-label">1.5</label>
+        <input type="checkbox" id=r_2 class="r_checkboxes" name="r_2">
+        <label for="r_2" class="checkbox-label">2</label>
+        <input type="checkbox" id=r_25 class="r_checkboxes" name="r_25">
+        <label for="r_25" class="checkbox-label">2.5</label>
+        <input type="checkbox" id=r_3 class="r_checkboxes" name="r_3">
+        <label for="r_3" class="checkbox-label">3</label>
+    </p>
+    <br>
+    <button class = "SubmitButton" type="button" onclick="validateAndSubmit()">Отправить</button>
+
+
+</form>
+</body>
+</html>
