@@ -1,53 +1,92 @@
-let x, y, r = [];
+let x, y, r = [], results = [];
 
-function getMarkedBoxes(){
+function getMarkedBoxes() {
     let allCheckBoxes = document.querySelectorAll('input[type="checkbox"]');
     let markedBoxes = [];
-    for(let i  = 0; i < allCheckBoxes.length; i++){
-        if(allCheckBoxes[i].checked){
+    for (let i = 0; i < allCheckBoxes.length; i++) {
+        if (allCheckBoxes[i].checked) {
             markedBoxes.push(allCheckBoxes[i]);
         }
     }
     return markedBoxes;
 }
 
-function validateAndSubmit(){
+function validateAndSubmit() {
+    try {
+        if (validate()) {
+            $.ajax({
+                type: "GET",
+                url: "php/script.php",
+                data: {
+                    "x": x,
+                    "y": y,
+                    "r": r,
+                    "time": new Date().getTimezoneOffset()
+                },
+                success: onResponse,
+                dataType: "text"
+            })
+        }
+    } catch (error) {
+        alert("Http error" + error);
+    }
+}
+
+function onResponse(response) {
+    let parsedResponse = JSON.parse(response);
+    parsedResponse.forEach(element => {
+        results.push(element);
+    });
+    let table = "<table class='result-table'><tr><th>X</th><th>Y</th><th>R</th><th>Результат</th><th>Время работы скрипта</th><th>Время</th></tr>";
+    results.forEach(element => {
+        //table += "<tr><td>";
+        for (let j = 0; j < element.length; j++) {
+            table += "<td>" + element[j] + "</td>";
+        }
+        table += "</tr>";
+    })
+    table += "</table>";
+    //document.getElementById("result-table").innerHTML = "hi";
+    document.getElementById("result_table").innerHTML = table;
 
 }
 
-function validateX(){
+
+function validateX() {
     let data = document.getElementById('x').value;
-    if(data == ""){
+    if (data == "") {
         alert("No value in select chosen.");
         return false;
     }
+    x = parseInt(data);
     return true;
 }
 
-function validateY(){
+function validateY() {
     let rawY = document.getElementById('y').value;
     let ymin = -5;
     let ymax = 5;
-    try{
+    try {
         let value_y = parseFloat(rawY);
-        if (value_y > ymin && value_y < ymax){
+        if (value_y > ymin && value_y < ymax) {
             y = value_y;
             return true;
-        }else{
+        } else {
             alert("Y - значение в интервале (-5, 5).")
             return false;
         }
-    }catch (error){
+    } catch (error) {
         alert("Y - значение в интервале (-5, 5).")
         return false;
     }
 }
 
-function validateR(){
+function validateR() {
     let markedBoxes = getMarkedBoxes();
-    if(markedBoxes.length >= 1){
-        for(let i = 0; i < markedBoxes.length; i++){
-            switch (markedBoxes[i].name){
+    r = [];
+    if (markedBoxes.length >= 1) {
+        for (let i = 0; i < markedBoxes.length; i++) {
+            switch (markedBoxes[i].name) {
                 case "r_1":
                     r.push(1);
                     break;
@@ -66,12 +105,13 @@ function validateR(){
             }
         }
         return true;
-    }else{
+    } else {
         alert("Не выбрано ни одного значения R.");
         return false;
     }
 }
 
-function validate(){
+function validate() {
     return validateX() && validateY() && validateR();
 }
+
