@@ -1,19 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+<link id="css_main" rel="stylesheet" type="text/css" href="css/main.css">
 
 
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    Студент: Вейгандт Владимир Вячеславович ИСУ 367132
+    <title>lab1</title>
 </head>
 <body>
-<h1>Лабораторная работа №1</h1>
-
-<image src="static/areas.png" alt="Область">
+<div class="top_block">
+    <div class="student_text">
+        Студент: Вейгандт Владимир Вячеславович ИСУ 367132
+    </div>
+    <div class="lab_name">
+        <h1>Лабораторная работа №1</h1>
+    </div>
+</div>
+<div class="image_block">
+    <image src="static/areas.png" alt="Область"></image>
+</div>
+<div class="form_block">
     <form>
-        <p>
+        <div class="input_container">
             <label for="x">X</label>
             <select id="x" class="required">
                 <option value="-5">-5</option>
@@ -26,43 +35,50 @@
                 <option value="2">2</option>
                 <option value="3">3</option>
             </select>
-        </p>
+        </div>
         <br>
-        <p>
+        <div class="input_container">
             <label for="y">Y</label>
             <input type="text" id="y" placeholder="Введите Y">
             (-5 ... 5 )
-        </p>
+        </div>
         <br>
-        <p>
-            R:
-            <input type="checkbox" id=r_1 class="r_checkboxes" name="r_1">
-            <label for="r_1" class="checkbox-label">1</label>
-            <input type="checkbox" id=r_15 class="r_checkboxes" name="r_15">
-            <label for="r_15" class="checkbox-label">1.5</label>
-            <input type="checkbox" id=r_2 class="r_checkboxes" name="r_2">
-            <label for="r_2" class="checkbox-label">2</label>
-            <input type="checkbox" id=r_25 class="r_checkboxes" name="r_25">
-            <label for="r_25" class="checkbox-label">2.5</label>
-            <input type="checkbox" id=r_3 class="r_checkboxes" name="r_3">
-            <label for="r_3" class="checkbox-label">3</label>
-        </p>
-        <br>
-        <button class="SubmitButton" type="button" onclick="validateAndSubmit()">Отправить</button>
-    </form>
-    <div id="result_table" class="result_class">
-        <table class="result_table">
-            <tr>
-                <th>X</th>
-                <th>Y</th>
-                <th>R</th>
-                <th>Результат</th>
-                <th>Время работы скрипта</th>
-                <th>Время</th>
-            </tr>
-        </table>
 
-    </div>
+        <div class=input_container>
+            <div class=checkbox_container>
+                R:
+                <input type="checkbox" id=r_1 class="r_checkboxes" name="r_1">
+                <label for="r_1" class="checkbox-label">1</label>
+                <input type="checkbox" id=r_15 class="r_checkboxes" name="r_15">
+                <label for="r_15" class="checkbox-label">1.5</label>
+                <input type="checkbox" id=r_2 class="r_checkboxes" name="r_2">
+                <label for="r_2" class="checkbox-label">2</label>
+                <input type="checkbox" id=r_25 class="r_checkboxes" name="r_25">
+                <label for="r_25" class="checkbox-label">2.5</label>
+                <input type="checkbox" id=r_3 class="r_checkboxes" name="r_3">
+                <label for="r_3" class="checkbox-label">3</label>
+            </div>
+        </div>
+
+        <br>
+        <div class = "button_class">
+            <button class="SubmitButton" type="button" onclick="validateAndSubmit()">Отправить</button>
+        </div>
+    </form>
+</div>
+<div id="result_table" class="result_class">
+    <table class="result_table">
+        <tr>
+            <th>X</th>
+            <th>Y</th>
+            <th>R</th>
+            <th>Результат</th>
+            <th>Время работы скрипта</th>
+            <th>Время</th>
+        </tr>
+    </table>
+
+</div>
 </body>
 <script src="js/val_and_sub.js"></script>
 </html>

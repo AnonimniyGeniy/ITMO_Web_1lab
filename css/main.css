@@ -1,0 +1,61 @@
+body {
+    background-color: #ffc8c8;
+}
+
+.top_block {
+    font-family: monospace;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 2.5%;
+}
+
+.image_block {
+    display: flex;
+    margin-left: 5%;
+}
+
+.form_block{
+    display: flex;
+    margin-left: 5%;
+}
+.input_container select,
+.input_container input {
+    /*border: none;*/
+    background: transparent;
+    border-radius: 7px;
+}
+
+.input_container {
+    font-family: "Sitka Text", serif;
+    font-size: 20px;
+    margin-left: 10px;
+
+}
+
+.button_class .SubmitButton {
+    border-radius: 5px;
+    background-color: transparent;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+
+.button_class .SubmitButton:active {
+    background-color: #ffb3b3;
+    border-color: #ffffff;
+    color: white;
+}
+
+.button_class .SubmitButton:hover {
+    background-color: #ffb3b3;
+    border-color: #ffffff;
+    color: white;
+}
+
+.result_table{
+    margin-left: 5%;
+    margin-top: 5%;
+    border-collapse: collapse;
+    width: 90%;
+}
