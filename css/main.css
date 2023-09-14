@@ -12,17 +12,66 @@ body {
 .image_block {
     display: flex;
     margin-left: 5%;
+    margin-bottom: 1%;
 }
 
 .form_block{
     display: flex;
     margin-left: 5%;
 }
+
+.input_container{
+    display: flex;
+}
+
 .input_container select,
 .input_container input {
     /*border: none;*/
     background: transparent;
     border-radius: 7px;
+}
+
+.checkbox_container{
+    display: inline-flex;
+}
+
+input[type="checkbox"]:checked,
+input[type="checkbox"]:not(:checked){
+    position: absolute;
+    left: -9999px;
+}
+
+input[type="checkbox"]:checked + label,
+input[type="checkbox"]:not(:checked) + label{
+    display: inline-flex;
+    position: relative;
+    padding-left: 25%;
+    padding-right: 5%;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label:before,
+input[type="checkbox"]:not(:checked) + label:before{
+    content: "";
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    width: 18px;
+    height: 18px;
+    border-radius: 7px;
+    border: 2px solid #6c6c6c;
+    background-color: transparent;
+}
+
+input[type="checkbox"]:checked + label:before{
+    background-color: #910000;
+    border-radius: 7px;
+}
+
+input[type="checkbox"]:checked + label:after,
+input[type="checkbox"]:not(:checked) + label:after {
+    content: "";
+    position: absolute;
 }
 
 .input_container {
@@ -54,8 +103,10 @@ body {
 }
 
 .result_table{
+    display: inline-flex;
     margin-left: 5%;
-    margin-top: 5%;
+    margin-top: 1%;
+    /*margin-right: 25%;*/
     border-collapse: collapse;
-    width: 90%;
+    /*width: 90%;*/
 }
