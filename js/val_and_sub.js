@@ -64,10 +64,14 @@ function validateX() {
 
 function validateY() {
     let rawY = document.getElementById('y').value;
+    console.log(rawY);
+
     let ymin = -5;
     let ymax = 5;
     try {
+        //console.log(Math.fround(rawY * 100000000)/100000000);
         let value_y = parseFloat(rawY);
+
         if (value_y > ymin && value_y < ymax) {
             y = value_y;
             return true;
@@ -76,7 +80,7 @@ function validateY() {
             return false;
         }
     } catch (error) {
-        alert("Y - значение в интервале (-5, 5).")
+        alert("Y - значение в интервале (-5, 5).11")
         return false;
     }
 }
